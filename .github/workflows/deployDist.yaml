@@ -1,0 +1,13 @@
+name: deployment
+on: [push, workflow_dispatch]
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy application
+              run: echo "Deploying application..."
+            - name: Get Code
+              run: |
+                echo "Fetching code from repository..."
+                echo "${{toJson(github)}}"
+                git clone https://github.com/${{github.repository}}.git
