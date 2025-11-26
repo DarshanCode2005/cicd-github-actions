@@ -1,5 +1,12 @@
 name: deployment
-on: [push, workflow_dispatch]
+on:
+    push:
+        branches:
+            - main
+            - 'feature/**'
+        paths-ignore:
+            - '**.md'
+            - '.github/workflows/greeting.yaml'
 jobs:
     test:
         runs-on: ubuntu-latest
